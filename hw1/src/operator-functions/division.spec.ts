@@ -1,4 +1,4 @@
-import { Division } from "./division";
+import { division } from "./division";
 import { LoggerService } from "../services/logger.service";
 
 jest.mock("../services/logger.service");
@@ -8,7 +8,7 @@ describe("Тесты функции деления", () => {
         const a = 10;
         const b = 2;
 
-        const result = Division(a, b);
+        const result = division(a, b);
 
         expect(result).toBe(5);
     });
@@ -19,7 +19,7 @@ describe("Тесты функции деления", () => {
         const a = 10;
         const b = 0;
 
-        const result = Division(a, b);
+        const result = division(a, b);
 
         expect(LoggerService.prototype.error).toHaveBeenCalledWith({ message: "Деление на ноль." });
         expect(processMock).toHaveBeenCalledWith(1);

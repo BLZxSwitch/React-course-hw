@@ -1,12 +1,25 @@
 import { IsIntegerValidator } from "../validators/is-integer.validator";
 import { LoggerService } from "../services/logger.service";
-import { FactorialByFor, FactorialByRecursion } from "../constants";
+import { FactorialByRecursion } from "../constants";
 
 /** Логер */
 const logger = new LoggerService();
 
+const validate = (value: number, operator: string): boolean => {
+    const isIntegerValidator = new IsIntegerValidator();
+    const validationResult = isIntegerValidator.validate(value);
+    if (!validationResult.valid) {
+        logger.error({
+            message: validationResult.error.replace("{operator}", operator)
+        });
+        process.exit(1);
+    }
+
+    return validationResult.valid;
+}
+
 /** Функция вычисления факториала с помощью цикла*/
-export const FactorialFor = (a: number): number => {
+export const factorialFor = (a: number): number => {
     if (validate(a, FactorialByRecursion)) {
 
         let result = 1;
@@ -21,7 +34,7 @@ export const FactorialFor = (a: number): number => {
 };
 
 /** Функция вычисления факториала с помощью рекурсии */
-export const FactorialRec = (a: number): number => {
+export const factorialRec = (a: number): number => {
     if (validate(a, FactorialByRecursion)) {
 
         if (a === 0) {
@@ -32,20 +45,7 @@ export const FactorialRec = (a: number): number => {
             return a;
         }
 
-        return a * FactorialRec(a - 1);
+        return a * factorialRec(a - 1);
     }
     return NaN;
-}
-
-const validate = (value: number, operator: string): boolean => {
-    const isIntegerValidator = new IsIntegerValidator();
-    const validationResult = isIntegerValidator.validate(value);
-    if (!validationResult.valid) {
-        logger.error({
-            message: validationResult.error.replace("{operator}", operator)
-        });
-        process.exit(1);
-    }
-
-    return validationResult.valid;
 }

@@ -1,4 +1,4 @@
 /** Функция оператора cos */
-export const Cos = (a: number): number => {
+export const cos = (a: number): number => {
     return Math.cos(a);
 };

@@ -1,4 +1,4 @@
 /** Функция оператора вычитания */
-export const Subtraction = (a: number, b: number): number => {
+export const subtraction = (a: number, b: number): number => {
     return a - b;
 };

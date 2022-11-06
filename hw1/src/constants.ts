@@ -4,15 +4,15 @@ import { BracesValidator } from "./validators/barces.validator";
 import { Operator } from "./models/operator";
 import { OperatorType } from "./enums/operator-type";
 import { Priority } from "./enums/priority";
-import { Multiply } from "./operator-functions/multiply";
-import { Addition } from "./operator-functions/addition";
-import { Division } from "./operator-functions/division";
-import { Subtraction } from "./operator-functions/subtraction";
-import { Power } from "./operator-functions/power";
-import { Sin } from "./operator-functions/sin";
-import { Cos } from "./operator-functions/cos";
-import { Tan } from "./operator-functions/tan";
-import { FactorialFor, FactorialRec } from "./operator-functions/factorial";
+import { multiply } from "./operator-functions/multiply";
+import { addition } from "./operator-functions/addition";
+import { division } from "./operator-functions/division";
+import { subtraction } from "./operator-functions/subtraction";
+import { power } from "./operator-functions/power";
+import { sin } from "./operator-functions/sin";
+import { cos } from "./operator-functions/cos";
+import { tan } from "./operator-functions/tan";
+import { factorialFor, factorialRec } from "./operator-functions/factorial";
 
 /** Оператор факториала вычисляемого рекурсией */
 export const FactorialByRecursion = "!";
@@ -63,51 +63,51 @@ export const Operators: ReadonlyArray<Operator> = [
         operator: "*",
         operatorType: OperatorType.ComputeSides,
         priority: Priority.Second,
-        processFn: Multiply,
+        processFn: multiply,
     }, {
         operator: "+",
         operatorType: OperatorType.ComputeSides,
         priority: Priority.Third,
-        processFn: Addition,
+        processFn: addition,
     }, {
         operator: "/",
         operatorType: OperatorType.ComputeSides,
         priority: Priority.Second,
-        processFn: Division,
+        processFn: division,
     }, {
         operator: "-",
         operatorType: OperatorType.ComputeSides,
         priority: Priority.Third,
-        processFn: Subtraction,
+        processFn: subtraction,
     }, {
         operator: "^",
         operatorType: OperatorType.ComputeSides,
         priority: Priority.First,
-        processFn: Power,
+        processFn: power,
     }, {
         operator: "sin",
         operatorType: OperatorType.ComputeValueRight,
         priority: Priority.First,
-        processFn: Sin,
+        processFn: sin,
     }, {
         operator: "cos",
         operatorType: OperatorType.ComputeValueRight,
         priority: Priority.First,
-        processFn: Cos,
+        processFn: cos,
     }, {
         operator: "tan",
         operatorType: OperatorType.ComputeValueRight,
         priority: Priority.First,
-        processFn: Tan,
+        processFn: tan,
     }, {
         operator: FactorialByRecursion,
         operatorType: OperatorType.ComputeValueLeft,
         priority: Priority.First,
-        processFn: FactorialRec,
+        processFn: factorialRec,
     }, {
         operator: FactorialByFor,
         operatorType: OperatorType.ComputeValueLeft,
         priority: Priority.First,
-        processFn: FactorialFor,
+        processFn: factorialFor,
     }
 ].sort((a, b) => b.priority - a.priority);

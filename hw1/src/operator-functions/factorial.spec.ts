@@ -1,4 +1,4 @@
-import { FactorialFor, FactorialRec } from "./factorial";
+import { factorialFor, factorialRec } from "./factorial";
 import { LoggerService } from "../services/logger.service";
 
 jest.mock("../services/logger.service");
@@ -7,7 +7,7 @@ describe("Тесты функции вычисления факториала ч
     test("Должны вычислить факториал положительного числа", () => {
         const a = 3;
 
-        const result = FactorialFor(a);
+        const result = factorialFor(a);
 
         expect(result).toBe(6);
     });
@@ -15,7 +15,7 @@ describe("Тесты функции вычисления факториала ч
     test("Должны вычислить факториал 0", () => {
         const a = 0;
 
-        const result = FactorialFor(a);
+        const result = factorialFor(a);
 
         expect(result).toBe(1);
     });
@@ -23,7 +23,7 @@ describe("Тесты функции вычисления факториала ч
     test("Должны вычислить факториал 0", () => {
         const a = 0;
 
-        const result = FactorialFor(a);
+        const result = factorialFor(a);
 
         expect(result).toBe(1);
     });
@@ -33,7 +33,7 @@ describe("Тесты функции вычисления факториала ч
 
         const value = 3.2;
 
-        const result = FactorialFor(value)
+        const result = factorialFor(value)
 
         expect(LoggerService.prototype.error).toHaveBeenCalled();
         expect(processMock).toHaveBeenCalledWith(1);
@@ -43,7 +43,7 @@ describe("Тесты функции вычисления факториала ч
     test("Должны вычислить факториал положительного числа", () => {
         const a = 3;
 
-        const result = FactorialRec(a);
+        const result = factorialRec(a);
 
         expect(result).toBe(6);
     });
@@ -51,7 +51,7 @@ describe("Тесты функции вычисления факториала ч
     test("Должны вычислить факториал 0", () => {
         const a = 0;
 
-        const result = FactorialRec(a);
+        const result = factorialRec(a);
 
         expect(result).toBe(1);
     });
@@ -59,7 +59,7 @@ describe("Тесты функции вычисления факториала ч
     test("Должны вычислить факториал 0", () => {
         const a = 0;
 
-        const result = FactorialRec(a);
+        const result = factorialRec(a);
 
         expect(result).toBe(1);
     });
@@ -69,7 +69,7 @@ describe("Тесты функции вычисления факториала ч
 
         const value = 3.2;
 
-        const result = FactorialRec(value)
+        const result = factorialRec(value)
 
         expect(LoggerService.prototype.error).toHaveBeenCalled();
         expect(processMock).toHaveBeenCalledWith(1);

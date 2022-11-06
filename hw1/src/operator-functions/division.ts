@@ -2,7 +2,7 @@ import { DivisionByZeroValidator } from "../validators/division-by-zero.validato
 import { LoggerService } from "../services/logger.service";
 
 /** Функция оператора деления */
-export const Division = (a: number, b: number): number => {
+export const division = (a: number, b: number): number => {
     const validationResult = new DivisionByZeroValidator().validate(b);
     if (validationResult.valid) {
         return a / b;

@@ -1,6 +1,4 @@
 import { LoggerService } from "../services/logger.service";
-import { NormalModeProcessor } from "./normal-mode.processor";
-import { Operators } from "../constants";
 import { ReverseModeProcessor } from "./reverse-mode.processor";
 
 describe("Тесты процессора режима Обратная польская запись", () => {
