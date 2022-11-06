@@ -10,7 +10,9 @@
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "loki": "loki test",
+    "chromatic": "npx chromatic --project-token=51e8701a6f77"
   },
   "keywords": [],
   "author": "",
@@ -44,6 +46,7 @@
     "@types/react-dom": "^18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
+    "chromatic": "^6.11.4",
     "eslint": "^8.20.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -57,6 +60,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.2.2",
     "jest-environment-jsdom": "^29.2.2",
+    "loki": "^0.30.3",
     "prettier": "^2.7.1",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
@@ -64,5 +68,22 @@
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
-  }
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "hw2@1.0.0"
 }

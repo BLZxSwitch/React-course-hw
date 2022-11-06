@@ -12,6 +12,6 @@ describe('app', () => {
       root.render(<App />);
     });
     const div = container.querySelector('div');
-    expect(div?.classList.contains('red')).toBeTruthy();
+    expect(div?.classList.contains('container')).toBeTruthy();
   });
 });
