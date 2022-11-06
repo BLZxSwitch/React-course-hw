@@ -2,6 +2,9 @@
 // В функцию приходит массив состояний заказа и фильтруется
 // Нужно заменить FIXME на тип который вычисляется на освове OrderState
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type FIXME = Exclude<OrderState, "buyingSupplies" | "producing">[];
+
 const orderStates = [
   "initial",
   "inWork",
@@ -12,8 +15,8 @@ const orderStates = [
 
 type OrderState = typeof orderStates[number];
 
-export const getUserOrderStates = (orderStates: OrderState[]): ("initial" | "inWork" | "fullfilled")[] => {
-  const filteredStates = [] as ("initial" | "inWork" | "fullfilled")[];
+export const getUserOrderStates = (orderStates: OrderState[]): FIXME => {
+  const filteredStates = [] as FIXME;
   orderStates.forEach((element) => {
     if (element !== "buyingSupplies" && element !== "producing") {
       filteredStates.push(element);

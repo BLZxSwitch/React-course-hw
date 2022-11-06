@@ -4,39 +4,42 @@
 // А возвращает только initial и inWork
 // Нужно заменить FIXME на правильный тип вычисленный на основе Order
 
-type Order =
-  | {
-      state: "initial";
-      sum: number;
-    }
-  | {
-      state: "inWork";
-      sum: number;
-      workerId: number;
-    }
-  | {
-      state: "buyingSupplies";
-      sum: number;
-      workerId: number;
-      suppliesSum: number;
-    }
-  | {
-      state: "producing";
-      sum: number;
-      workerId: number;
-      suppliesSum: number;
-      produceEstimate: Date;
-    }
-  | {
-      state: "fullfilled";
-      sum: number;
-      workerId: number;
-      suppliesSum: number;
-      produceEstimate: Date;
-      fullfillmentDate: Date;
-    };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type FIXME = Extract<Order, Initial | InWork>;
 
-export const filterOnlyInitialAndInWorkOrder = (order: Order): {state: "initial", sum: number} | {state: "inWork", sum: number, workerId: number} => {
+type Initial = {
+    state: "initial";
+    sum: number;
+};
+type InWork = {
+    state: "inWork";
+    sum: number;
+    workerId: number;
+};
+type BuyingSupplies = {
+    state: "buyingSupplies";
+    sum: number;
+    workerId: number;
+    suppliesSum: number;
+};
+type Producing = {
+    state: "producing";
+    sum: number;
+    workerId: number;
+    suppliesSum: number;
+    produceEstimate: Date;
+};
+type Fullfilled = {
+    state: "fullfilled";
+    sum: number;
+    workerId: number;
+    suppliesSum: number;
+    produceEstimate: Date;
+    fullfillmentDate: Date;
+};
+type Order = Initial | InWork | BuyingSupplies | Producing | Fullfilled;
+
+export const filterOnlyInitialAndInWorkOrder = (order: Order): FIXME => {
   if (order.state === "initial" || order.state === "inWork") {
     return order;
   }

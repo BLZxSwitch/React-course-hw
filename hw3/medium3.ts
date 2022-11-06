@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type FIXME = Exclude<OrderState, "buyingSupplies" | "producing">;
+
 const orderStates = [
   "initial",
   "inWork",
@@ -8,8 +11,8 @@ const orderStates = [
 
 type OrderState = typeof orderStates[number];
 
+const predicate = (x: FIXME | OrderState): x is FIXME => x !== "buyingSupplies" && x !== "producing";
+
 // Hint: type guards
-export const getUserOrderStates = (orderStates: OrderState[]): ("initial" | "inWork" | "buyingSupplies" | "producing" | "fullfilled")[] =>
-  orderStates.filter(
-    (state) => state !== "buyingSupplies" && state !== "producing"
-  );
+export const getUserOrderStates = (orderStates: OrderState[]): FIXME[] => orderStates.filter(predicate);
+
