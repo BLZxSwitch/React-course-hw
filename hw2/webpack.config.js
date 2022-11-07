@@ -8,6 +8,7 @@ module.exports = {
         filename: "bundle.[contenthash].js",
         clean: true,
     },
+    mode: "development",
     devtool: "source-map",
     module: {
         rules: [

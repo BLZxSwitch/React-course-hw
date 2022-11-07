@@ -11,6 +11,9 @@ const config: Config.InitialOptions = {
     moduleNameMapper: {
         "\\.(css|sass)$": "identity-obj-proxy",
     },
+    setupFilesAfterEnv: [
+        "<rootDir>/setupTests.ts"
+    ]
 }
 
 export default config;
