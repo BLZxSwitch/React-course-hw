@@ -1,6 +1,6 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
-import { Board } from "./board";
+import { Board } from './board';
 import { EBoardSize } from './board-enums';
 
 describe('Board', () => {

@@ -1,6 +1,6 @@
-import { getCurrentBoardConfig } from './board-utils';
-import { EBoardSize } from './board-enums';
-import { BOARD_SIZE_CONFIGS } from './board-constants';
+import { getCurrentBoardConfig } from '../board-utils';
+import { BOARD_SIZE_CONFIGS } from '../board-constants';
+import { EBoardSize } from '../board-enums';
 
 describe('board-utils', () => {
   describe('getCurrentBoardConfig', () => {
